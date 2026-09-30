@@ -1,0 +1,2 @@
+$ curl -X POST http://localhost:5050/api/login -H "Content-Type: application/json" -d "{\"email\":\"mariam@example.com\",\"password\":\"SecurePass123\"}"
+{"message":"Login successful","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.demo-token","user":{"name":"Mariam Kamau","email":"mariam@example.com","role":"Patient","phone":"+254 712 345 678"}}

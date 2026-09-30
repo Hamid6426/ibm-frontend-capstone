@@ -1,18 +1,18 @@
 import { useState } from 'react'
-import { useApp, type Page } from '@/store'
-import { Avatar, Button, Container, Logo } from '@/ui'
+import { useApp } from '@/store'
+import { Avatar, Container, Logo } from '@/ui'
 
-export function Navbar() {
+export default function Navbar() {
   const { page, go, user, setUser, notify } = useApp()
   const [open, setOpen] = useState(false)
 
-  const links: [string, Page][] = [
+  const links = [
     ['Home', 'home'],
     ['Appointments', 'appointments'],
     ['Instant Consult', 'consult'],
     ['Reviews', 'review'],
   ]
-  const nav = (p: Page) => {
+  const nav = (p) => {
     go(p)
     setOpen(false)
   }
@@ -22,7 +22,7 @@ export function Navbar() {
     nav('home')
   }
 
-  const linkCls = (p: Page) =>
+  const linkCls = (p) =>
     `flex min-h-11 items-center rounded-brand px-3 text-base font-medium transition-colors ${
       page === p ? 'bg-white text-secondary' : 'text-white hover:bg-white/15'
     }`
@@ -112,63 +112,3 @@ export function Navbar() {
     </header>
   )
 }
-
-const tone = {
-  success: { bar: 'bg-primary', icon: 'M5 12l5 5 9-10' },
-  error: { bar: 'bg-[#a12b2b]', icon: 'M12 7v6M12 17h.01' },
-  info: { bar: 'bg-secondary', icon: 'M12 11v6M12 7h.01' },
-}
-
-export function Toasts() {
-  const { toasts, dismiss } = useApp()
-  return (
-    <div className="pointer-events-none fixed inset-x-0 top-20 z-50 flex flex-col items-center gap-2 px-4" role="status" aria-live="polite">
-      {toasts.map((t) => (
-        <div key={t.id} className="toast-in pointer-events-auto flex w-full max-w-md overflow-hidden rounded-brand border border-line bg-base shadow-xl">
-          <div className={`grid w-12 place-items-center ${tone[t.kind].bar}`}>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-              <path d={tone[t.kind].icon} />
-            </svg>
-          </div>
-          <div className="flex-1 px-4 py-3">
-            <p className="font-semibold text-inverse">{t.title}</p>
-            {t.body && <p className="text-sm text-muted">{t.body}</p>}
-          </div>
-          <button onClick={() => dismiss(t.id)} aria-label="Dismiss" className="px-4 text-muted hover:text-inverse">
-            ✕
-          </button>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-export function Footer() {
-  const { go } = useApp()
-  return (
-    <footer className="bg-inverse text-white">
-      <Container className="grid gap-8 py-12 md:grid-cols-[2fr_1fr_1fr]">
-        <div>
-          <Logo light />
-          <p className="mt-4 max-w-sm text-[#b9c8d0]">A non-profit bringing doctors to every village, town and home. Part of our Go Digital initiative.</p>
-        </div>
-        <div className="flex flex-col items-start gap-2">
-          <p className="font-semibold">Care</p>
-          {([['Book appointment', 'appointments'], ['Instant consult', 'consult'], ['Give a review', 'review']] as [string, Page][]).map(([l, p]) => (
-            <button key={p} onClick={() => go(p)} className="min-h-9 text-[#b9c8d0] hover:text-white">
-              {l}
-            </button>
-          ))}
-        </div>
-        <div className="flex flex-col items-start gap-2">
-          <p className="font-semibold">Account</p>
-          <button onClick={() => go('login')} className="min-h-9 text-[#b9c8d0] hover:text-white">Login</button>
-          <button onClick={() => go('signup')} className="min-h-9 text-[#b9c8d0] hover:text-white">Sign Up</button>
-        </div>
-      </Container>
-      <div className="border-t border-white/10 py-5 text-center text-sm text-[#b9c8d0]">© 2026 StayHealthy Foundation. A fictitious non-profit.</div>
-    </footer>
-  )
-}
-
-export { Button }

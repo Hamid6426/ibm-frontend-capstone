@@ -1,23 +1,6 @@
 import { useApp } from '@/store'
 import { Button, Card, Container, Stars } from '@/ui'
-
-const services = [
-  ['General care', 'Coughs, fevers, check-ups and everyday concerns.'],
-  ['Children & family', 'Gentle pediatric and maternal care for every age.'],
-  ['Heart & chronic', 'Ongoing support for blood pressure, diabetes and more.'],
-  ['Mental wellbeing', 'A private, judgment-free space to talk.'],
-]
-const steps = [
-  ['Create your account', 'Sign up in a minute with just a phone number and email.'],
-  ['Choose a doctor', 'Filter by specialty and see real ratings and experience.'],
-  ['Pick a time', 'Select a slot that suits you — low-bandwidth friendly.'],
-  ['Talk to your doctor', 'Join by video, voice or chat from wherever you are.'],
-]
-const quotes = [
-  ['I live four hours from the nearest clinic. Now my daughter sees a pediatrician from our kitchen.', 'Mariam K.', 'Mother of two, rural Kenya'],
-  ['The instant consult saved us on a late night. Calm, clear, and free of charge.', 'Joseph T.', 'Farmer, northern Uganda'],
-  ['Booking took two taps and the reminders meant I never missed a follow-up.', 'Sunita R.', 'Teacher, Himachal Pradesh'],
-]
+import { quotes, services, stats, steps } from '@/lib/content'
 
 export default function Landing() {
   const { go } = useApp()
@@ -40,7 +23,7 @@ export default function Landing() {
               <Button variant="outline" onClick={() => go('consult')} className="h-14 px-7 text-lg">Talk to a doctor now</Button>
             </div>
             <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4">
-              {[['240+', 'Volunteer doctors'], ['85k', 'Consultations'], ['1,900', 'Villages reached']].map(([n, l]) => (
+              {stats.map(([n, l]) => (
                 <div key={l}>
                   <dt className="text-2xl font-bold text-secondary md:text-3xl">{n}</dt>
                   <dd className="text-sm text-muted">{l}</dd>
