@@ -36,6 +36,7 @@ export default function GiveReviews() {
                     key={i}
                     aria-label={`${i} star${i > 1 ? 's' : ''}`}
                     aria-pressed={rating === i}
+                    disabled={done}
                     onMouseEnter={() => setHover(i)}
                     onClick={() => setRating(i)}
                     className="grid size-12 place-items-center rounded-brand hover:bg-page disabled:hover:bg-transparent"
@@ -55,10 +56,12 @@ export default function GiveReviews() {
                 rows={4}
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
+                disabled={done}
                 placeholder="Tell us what went well or what could be better"
                 className="w-full rounded-brand border border-[#8ba0ad] bg-base p-4 placeholder:text-[#6b7f8a] focus:border-primary focus:outline-none focus:ring-3 focus:ring-primary/30 disabled:bg-page"
               />
             </div>
+            {/* Once submitted, `done` disables the whole form so no further reviews can be sent */}
             <Button type="submit" disabled={done}>{done ? 'Review submitted' : 'Submit review'}</Button>
           </fieldset>
         </form>

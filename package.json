@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "dev:server": "node --watch server/build/index.js",
+    "build": "vite build && tsc -p server",
+    "start": "node server/build/index.js",
     "preview": "vite preview",
     "format": "oxfmt"
   },

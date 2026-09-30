@@ -1,6 +1,6 @@
-# StayHealthy — Front-End Capstone Project
+# Medical Appointment Booking — StayHealthy
 
-StayHealthy is a non-profit healthcare platform that connects patients with doctors **anytime, anywhere**. Built as part of the *Go Digital* initiative, it aims to improve access to medical services in remote and underserved areas with limited healthcare infrastructure.
+**Medical Appointment Booking** (StayHealthy) is a non-profit healthcare platform that connects patients with doctors **anytime, anywhere**. Built as part of the *Go Digital* initiative, it aims to improve access to medical services in remote and underserved areas with limited healthcare infrastructure.
 
 **Live deployment:** https://ibm-frontend-capstone.vercel.app/
 
@@ -50,8 +50,8 @@ StayHealthy is a non-profit healthcare platform that connects patients with doct
 
 ```bash
 # Clone the repository
-git clone https://github.com/Hamid6426/ibm-frontend-capstone.git
-cd ibm-frontend-capstone
+git clone https://github.com/Hamid6426/med_appt.git
+cd med_appt
 
 # Install dependencies
 npm install

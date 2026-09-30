@@ -1,2 +1,2 @@
-$ curl -X POST http://localhost:5050/api/register -H "Content-Type: application/json" -d "{\"role\":\"Patient\",\"name\":\"Mariam Kamau\",\"email\":\"mariam@example.com\",\"phone\":\"+254 712 345 678\",\"password\":\"SecurePass123\"}"
-{"message":"User registered successfully","user":{"name":"Mariam Kamau","email":"mariam@example.com","role":"Patient"}}
+$ curl -X POST http://localhost:5050/api/auth/register -H "Content-Type: application/json" -d "{\"role\":\"Patient\",\"name\":\"Mariam Kamau\",\"email\":\"mariam@example.com\",\"phone\":\"+254 712 345 678\",\"password\":\"SecurePass123\"}"
+{"message":"User registered successfully","authtoken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmlhbUBleGFtcGxlLmNvbSIsInJvbGUiOiJQYXRpZW50IiwiaWF0IjoxNzkwNzUzODU3MzE1fQ.s1gn4tur3","user":{"name":"Mariam Kamau","email":"mariam@example.com","role":"Patient"}}
